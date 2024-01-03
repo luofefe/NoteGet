@@ -1,0 +1,122 @@
+noteGroupnote:  #查看分组下便签
+    path: '/v3/notesvr/web/getnotes/group'
+    mustKeys:   #必填项
+      - groupId
+    notMustKeys:  #非必填项
+      -startIndex 
+      -rows
+    bodyBase: { }   #请求项
+
+createGroup:
+  path: '/v3/notesvr/set/notegroup'
+  mustKeys:
+    - groupId
+    - groupName
+  notMustKeys:
+    - remove
+  bodyBase: { }
+
+deleteGroup: #请求删除分组接口
+  path: '/notesvr/delete/notegroup'
+  mustKeys:
+    - groupId
+  notMustKeys:
+
+  bodyBase: { }
+
+getGroup:
+  path: '/v3/notesvr/get/notegroup'
+  mustKeys:
+    - excludeInValid
+  notMustKeys:
+
+  bodyBase: { }
+
+getHomePage:   #查看首页便签列表
+  path: '/v3/notesvr/user/301701083/home/startindex/0/rows/9999/notes'
+  path1: '/v3/notesvr/user/home/startindex/0/rows/9999/notes'
+  path2: '/v3/notesvr/user/301701083/home/startindex/0/rows/notes'
+  path3: '/v3/notesvr/user/301701083/home/startindex/rows/9999/notes'
+  mustKeys:
+    - userid
+    - startindex
+    - rows
+  notMustKeys:
+  bodyBase: { }
+
+deleteNote:  #删除便签
+  path: '/v3/notesvr/delete'
+  mustKeys:
+    - noteId
+  notMustKeys:
+  bodyBase: { }
+
+updateNoteContent:  #更新便签内容
+  path: '/v3/notesvr/set/notecontent'
+  mustKeys:
+    - noteId
+
+  notMustKeys:
+
+  bodyBase: { }
+
+updateNoteSubject:  #上传/更新便签信息主体
+  path: '/v3/notesvr/set/noteinfo'
+  mustKeys:
+    - noteId
+  notMustKeys:
+    - star
+    - remindTime
+    - remindType
+    - groupId
+  bodyBase: { }
+
+
+getCalendarNote:   #查看日历下便签数据
+  path: '/v3/notesvr/web/getnotes/remind'
+  mustKeys:
+    - remindStartTime
+    - remindEndTime
+    - startIndex
+    - rows
+  notMustKeys:
+  bodyBase: { }
+
+
+getNoteContent:  #查看便签内容
+  path: '/v3/notesvr/get/notebody'
+  mustKeys:
+    - noteIds
+  notMustKeys:
+
+  bodyBase: { }
+
+
+getRecycleBin:     #查看回收站下便签列表
+  path: '/v3/notesvr/user/301701083/invalid/startindex/0/rows/9999/notes'
+  path1: '/v3/notesvr/user/invalid/startindex/0/rows/9999/notes'
+  path2: '/v3/notesvr/user/301701083/invalid/startindex/rows/9999/notes'
+  path3: '/v3/notesvr/user/301701083/invalid/startindex/0/rows/notes'
+  mustKeys:
+    - noteId
+    - createTime
+    - star
+  notMustKeys:
+
+  bodyBase: { }
+
+deleteRecycleBin:  #删除清空回收站
+  path: '/v3/notesvr/cleanrecyclebin'
+  mustKeys:
+    - noteIds
+  notMustKeys:
+
+  bodyBase: { }
+
+restoreRecycleBin:   #恢复回收站
+  path: '/notesvr/v2/user/301701083/notes'
+  mustKeys:
+    - noteIds
+  notMustKeys:
+  bodyBase: { }
+
